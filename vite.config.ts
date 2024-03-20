@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
-import withReactRouter from 'vite-plugin-next-react-router'
 import react from '@vitejs/plugin-react'
 import * as path from 'path'
 
 export default defineConfig({
-  plugins: [react(), withReactRouter()],
+  plugins: [react()],
   server: {
     port: 3000,
   },
