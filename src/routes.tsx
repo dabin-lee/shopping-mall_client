@@ -1,20 +1,20 @@
-import { lazy } from 'react'
-import GlobalLayout from './pages/_layout'
-
-const Index = lazy(() => import('./pages/index'))
-const PoroductsIndex = lazy(() => import('./pages/products/index'))
-const ProductsId = lazy(() => import('./pages/products/[id]'))
+import GlobalLayout from '@/pages/_layout'
+import Index from '@/pages/index'
+import ProductsIndex from '@/pages/products/index'
+import ProductsId from '@/pages/products/[id]'
+// import Cart from './pages/cart'
 
 export const routes = [
   {
     path: '/',
     element: <GlobalLayout />,
     children: [
-      { path: '/', element: <Index /> },
-      { path: '/products', element: <PoroductsIndex /> },
+      { path: '/', element: <Index />, index: true },
+      { path: '/products', element: <ProductsIndex />, index: true },
       { path: '/products/:id', element: <ProductsId /> },
+      // { path: '/cart', element: <Cart />, index: true },
     ],
   },
 ]
 
-export const pages = [{ route: '/' }, { route: '/cart' }, { route: '/payment' }, { route: '/products' }, { route: '/products/:id' }]
+export const pages = [{ route: '/' }, { route: '/products' }, { route: '/products/:id' }, { route: '/cart' }]
